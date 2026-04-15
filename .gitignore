@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs & debug
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript / tooling caches
+*.tsbuildinfo
+.vite/
+
+# Test / coverage (if added later)
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor (optional local junk; keep shared settings committed if you use them)
+*.swp
+*.swo
+*~
+
+# Local AI assistant cache
+.claude/local/
+.claude/cache/
