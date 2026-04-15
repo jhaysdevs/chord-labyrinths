@@ -56,7 +56,7 @@ function pillStyle(i: number) {
 defineExpose({ toggle });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .chord-pills {
   display: flex;
   flex-wrap: wrap;
@@ -67,28 +67,23 @@ defineExpose({ toggle });
 .chord-pill {
   border-radius: 20px;
   padding: 3px 10px;
-  font-size: 11px;
-  font-family: 'Space Mono', monospace;
+  @include mono(11px, 0.04em);
   font-weight: 600;
-  letter-spacing: 0.04em;
   cursor: pointer;
   transition: all 0.15s ease;
   border: 1px solid transparent;
   outline: none;
-}
 
-.chord-pill:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
+  @include focus-gold;
 
-.chord-pill:hover {
-  transform: scale(1.02);
-  filter: brightness(1.2);
-}
+  &:hover {
+    transform: scale(1.02);
+    filter: brightness(1.2);
+  }
 
-.chord-pill.active {
-  transform: scale(1.02);
+  &.active {
+    transform: scale(1.02);
+  }
 }
 
 .loop-icon {

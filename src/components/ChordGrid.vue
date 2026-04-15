@@ -67,7 +67,7 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 main {
   max-width: 1400px;
   margin: 0 auto;
@@ -83,8 +83,7 @@ main {
 .empty {
   text-align: center;
   padding: 80px 24px;
-  font-family: 'Crimson Pro', serif;
-  font-size: 18px;
+  @include serif(18px);
   color: var(--text-muted);
   font-style: italic;
 }

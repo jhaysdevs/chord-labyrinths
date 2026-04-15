@@ -144,7 +144,7 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #lab-modal {
   position: fixed;
   inset: 0;
@@ -171,6 +171,10 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   flex-direction: column;
   gap: 14px;
   outline: none;
+
+  @include mobile {
+    padding: 28px 20px 24px;
+  }
 }
 
 .modal-close {
@@ -189,25 +193,19 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s;
-}
 
-.modal-close:hover {
-  background: rgba(232, 197, 71, 0.12);
-  border-color: var(--gold);
-  color: var(--gold);
-}
+  &:hover {
+    background: rgba(232, 197, 71, 0.12);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
 
-.modal-close:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
+  @include focus-gold;
 }
 
 .modal-esc {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
+  @include label(9px, 0.14em);
   color: var(--text-dim);
-  text-transform: uppercase;
 }
 
 .modal-svg-wrap {
@@ -217,23 +215,18 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 }
 
 .modal-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  @include display-font(26px);
   font-weight: 900;
   color: var(--text);
   line-height: 1.1;
 }
 
 .modal-subtitle {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  @include label(10px, 0.14em);
 }
 
 .modal-desc {
-  font-family: 'Crimson Pro', serif;
-  font-size: 16px;
+  @include serif(16px);
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -244,22 +237,17 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 }
 
 .modal-example {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  @include mono(10px, 0.04em);
   color: var(--card-accent);
-  letter-spacing: 0.04em;
   line-height: 1.7;
 }
 
 .modal-cat {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  @include label(9px, 0.18em);
   opacity: 0.6;
 }
 
-/* Transitions */
+// Vue transition classes
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.25s ease;
@@ -272,25 +260,19 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 
 .modal-enter-from {
   opacity: 0;
-}
 
-.modal-enter-from #modal-inner {
-  transform: scale(0.94) translateY(16px);
-  opacity: 0;
+  #modal-inner {
+    transform: scale(0.94) translateY(16px);
+    opacity: 0;
+  }
 }
 
 .modal-leave-to {
   opacity: 0;
-}
 
-.modal-leave-to #modal-inner {
-  transform: scale(0.94) translateY(16px);
-  opacity: 0;
-}
-
-@media (max-width: 600px) {
   #modal-inner {
-    padding: 28px 20px 24px;
+    transform: scale(0.94) translateY(16px);
+    opacity: 0;
   }
 }
 </style>

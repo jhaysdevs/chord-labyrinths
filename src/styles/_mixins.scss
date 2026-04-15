@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+// ── Font stacks ────────────────────────────────────────────────────
+
+@mixin mono($size: null, $tracking: null) {
+  font-family: 'Space Mono', monospace;
+  @if $size { font-size: $size; }
+  @if $tracking { letter-spacing: $tracking; }
+}
+
+@mixin display-font($size: null) {
+  font-family: 'Playfair Display', serif;
+  @if $size { font-size: $size; }
+}
+
+@mixin serif($size: null) {
+  font-family: 'Crimson Pro', Georgia, serif;
+  @if $size { font-size: $size; }
+}
+
+// Small all-caps mono label — used throughout for metadata and category tags
+@mixin label($size: 10px, $tracking: 0.12em) {
+  @include mono($size, $tracking);
+  text-transform: uppercase;
+}
+
+// ── Interaction ────────────────────────────────────────────────────
+
+// Standard gold focus ring for keyboard nav
+@mixin focus-gold {
+  &:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}

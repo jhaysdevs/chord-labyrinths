@@ -7,7 +7,7 @@
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
   position: relative;
   z-index: 2;
@@ -17,32 +17,28 @@ header {
 }
 
 .eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  @include label(10px, 0.32em);
   color: var(--text-muted);
   margin-bottom: 16px;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  @include display-font;
   font-size: clamp(36px, 6vw, 68px);
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.05;
   color: var(--text);
-}
 
-h1 em {
-  color: var(--gold);
-  font-style: italic;
+  em {
+    color: var(--gold);
+    font-style: italic;
+  }
 }
 
 .sub {
   margin-top: 14px;
-  font-family: 'Crimson Pro', serif;
-  font-size: 17px;
+  @include serif(17px);
   font-style: italic;
   color: var(--text-muted);
 }

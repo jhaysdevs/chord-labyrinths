@@ -111,7 +111,7 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .card {
   position: relative;
   background: var(--bg2);
@@ -124,14 +124,13 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   cursor: default;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   overflow: hidden;
-}
 
-.card:hover {
-  border-color: color-mix(in srgb, var(--card-accent) 70%, transparent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  &:hover {
+    border-color: color-mix(in srgb, var(--card-accent) 70%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
 }
-
 
 .card-corner {
   position: absolute;
@@ -144,9 +143,7 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   position: absolute;
   top: 16px;
   left: 20px;
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  @include mono(10px, 0.12em);
   opacity: 0.5;
 }
 
@@ -154,10 +151,7 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   position: absolute;
   top: 16px;
   right: 16px;
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  @include label(9px, 0.14em);
   opacity: 0.7;
 }
 
@@ -168,23 +162,18 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.25);
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
+  @include mono(9px, 0.1em);
   cursor: pointer;
   padding: 4px 6px;
   border-radius: 6px;
   transition: color 0.2s, background 0.2s;
-}
 
-.card-expand-btn:hover {
-  color: var(--gold);
-  background: rgba(232, 197, 71, 0.08);
-}
+  &:hover {
+    color: var(--gold);
+    background: rgba(232, 197, 71, 0.08);
+  }
 
-.card-expand-btn:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
+  @include focus-gold;
 }
 
 .card-svg {
@@ -201,24 +190,19 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 }
 
 .card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
+  @include display-font(17px);
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;
 }
 
 .card-subtitle {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  @include label(10px, 0.1em);
   opacity: 0.8;
 }
 
 .card-desc {
-  font-family: 'Crimson Pro', serif;
-  font-size: 14px;
+  @include serif(14px);
   color: var(--text-muted);
   line-height: 1.5;
 }
@@ -229,10 +213,8 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
 }
 
 .card-example {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
+  @include mono(9px, 0.04em);
   color: var(--card-accent);
-  letter-spacing: 0.04em;
   line-height: 1.6;
 }
 </style>

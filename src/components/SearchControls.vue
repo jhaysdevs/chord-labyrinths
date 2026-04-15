@@ -117,7 +117,7 @@ watch(debouncedQuery, (val) => {
 
 <style src="@vueform/multiselect/themes/default.css"></style>
 
-<style scoped>
+<style lang="scss" scoped>
 #controls {
   position: sticky;
   top: 0;
@@ -135,6 +135,11 @@ watch(debouncedQuery, (val) => {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .search-controls {
@@ -148,22 +153,24 @@ watch(debouncedQuery, (val) => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 32px;
   padding: 5px 20px;
-  font-size: 11px;
+  @include mono(11px, 0.04em);
   color: var(--text-muted);
-  font-family: 'Space Mono', monospace;
-  letter-spacing: 0.04em;
   width: 400px;
   max-width: 100%;
   outline: none;
   transition: border-color 0.2s;
-}
 
-.search-input:focus {
-  border-color: var(--gold);
-}
+  &:focus {
+    border-color: var(--gold);
+  }
 
-.search-input::placeholder {
-  color: var(--text-dim);
+  &::placeholder {
+    color: var(--text-dim);
+  }
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .stats-bar {
@@ -173,25 +180,27 @@ watch(debouncedQuery, (val) => {
 }
 
 .stat {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  @include mono(10px, 0.1em);
   color: var(--text-muted);
-}
 
-.stat strong {
-  color: var(--gold);
+  strong {
+    color: var(--gold);
+  }
 }
 
 .sort-wrap {
   min-width: 190px;
 }
 
-/* ── Multiselect container ─────────────────────────────────────── */
+// ── Multiselect container ──────────────────────────────────────────
 .multiselect-wrap {
   flex: 1;
   min-width: 270px;
   max-width: 100%;
+
+  @include mobile {
+    max-width: 100%;
+  }
 }
 
 :deep(.multiselect) {
@@ -291,10 +300,10 @@ watch(debouncedQuery, (val) => {
 :deep(.multiselect-tag-remove) {
   opacity: 0.6;
   transition: opacity 0.15s;
-}
 
-:deep(.multiselect-tag-remove:hover) {
-  opacity: 1;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 :deep(.ms-multiple-label) {
@@ -315,19 +324,21 @@ watch(debouncedQuery, (val) => {
 
 :deep(.ms-count) {
   color: var(--gold);
+
+  &:first-of-type {
+    margin-right: 4px;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
 }
 
-:deep(.ms-count:first-of-type) {
-  margin-right: 4px;
-}
-
-:deep(.ms-count:not(:first-of-type)) {
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-:deep(.multiselect-clear):hover .multiselect-clear-icon {
-  background: var(--gold);
+:deep(.multiselect-clear) {
+  &:hover .multiselect-clear-icon {
+    background: var(--gold);
+  }
 }
 
 :deep(.multiselect-caret) {
@@ -350,20 +361,5 @@ watch(debouncedQuery, (val) => {
   text-transform: uppercase;
   padding: 10px 14px;
   display: block;
-}
-
-@media (max-width: 600px) {
-  .search-input {
-    width: 100%;
-  }
-
-  .controls-inner {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .multiselect-wrap {
-    max-width: 100%;
-  }
 }
 </style>
