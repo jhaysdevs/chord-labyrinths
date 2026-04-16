@@ -37,14 +37,13 @@ The experience should feel fluid, musical, and tactile — not just informationa
 ```text
 src/
 ├── main.ts                    # App bootstrap (Pinia + Vue mount)
-├── App.vue                    # Root layout: Header, SearchControls, ChordGrid, Pagination, Modal
+├── App.vue                    # Root layout: Header, SearchControls, ChordGrid, Modal
 ├── components/
 │   ├── Header.vue
 │   ├── SearchControls.vue     # Search input, category pills, sort controls
-│   ├── ChordGrid.vue          # Renders paginated chord cards
+│   ├── ChordGrid.vue          # Renders paginated cards; owns infinite-scroll sentinel
 │   ├── ChordCard.vue          # Individual card with SVG diagram + chord pills
 │   ├── ChordPills.vue         # Interactive chord toggles (local per-card state)
-│   ├── Pagination.vue         # "Load more" pagination control
 │   └── Modal.vue              # Expanded view (Escape/backdrop to close)
 ├── composables/
 │   ├── useFilteredChords.ts   # Derived filtered+sorted list
@@ -132,6 +131,18 @@ Typography: `'Crimson Pro'` (serif body), `'Playfair Display'` (card titles), `'
 ## Pagination Pattern
 
 Pagination is **load-more** (not page-based): `visibleCount` grows by 16 on each "load more" click. Filtering/sorting resets `visibleCount` back to `PAGE_SIZE`.
+
+---
+
+## Performance
+
+### Resize jank with a full grid
+
+Two rules to keep when touching `ChordCard` or `useScrollReveal`:
+
+1. **No `filter: blur()` in GSAP scroll reveal.** Pre-revealed cards (still at `opacity: 0`) that carry a CSS blur force the browser to composite each one in a separate off-screen pass. With a full page of cards this makes every resize frame expensive. The reveal animation uses `opacity` + `y` only — the effect is equivalent and the cost is near-zero.
+
+2. **`contain: layout` on `.card`.** CSS containment tells the browser that a card's internal layout changes don't affect siblings or the grid, and vice versa. Without it, the SVG content inside each card participates in the global reflow cascade whenever the grid recalculates column widths on resize. Don't remove this property, and don't add `contain: paint` — it would clip the SVGs which use `overflow: visible`.
 
 ---
 

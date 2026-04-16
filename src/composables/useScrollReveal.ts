@@ -15,7 +15,7 @@ export function useScrollReveal(el: Ref<HTMLElement | null>, delay = 0) {
   onMounted(() => {
     if (!el.value) return;
 
-    gsap.set(el.value, { opacity: 0, y: 32, filter: 'blur(14px)' });
+    gsap.set(el.value, { opacity: 0, y: 28 });
 
     observer = new IntersectionObserver(
       (entries) => {
@@ -26,13 +26,12 @@ export function useScrollReveal(el: Ref<HTMLElement | null>, delay = 0) {
             tween = gsap.to(root, {
               opacity: 1,
               y: 0,
-              filter: 'blur(0px)',
-              duration: 0.7,
+              duration: 0.6,
               delay,
-              ease: 'power3.inOut',
+              ease: 'power3.out',
               onComplete: () => {
                 // Clear GSAP inline props so CSS leave-transitions work normally
-                gsap.set(root, { clearProps: 'opacity,y,filter' });
+                gsap.set(root, { clearProps: 'opacity,y' });
                 toggleFirstChordPill(root);
               },
             });

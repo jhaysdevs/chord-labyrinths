@@ -124,6 +124,7 @@ function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
   cursor: default;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   overflow: hidden;
+  contain: layout;
 
   &:hover {
     border-color: color-mix(in srgb, var(--card-accent) 70%, transparent);
