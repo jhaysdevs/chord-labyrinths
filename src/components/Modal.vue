@@ -48,7 +48,8 @@
 import { computed, watch, nextTick, ref } from 'vue';
 import type { ChordLabyrinth } from '../types/chords';
 import ChordPills from './ChordPills.vue';
-import { buildSVG } from '../utils/svg';
+import { buildSVG, highlightSVGNode } from '../utils/svg';
+import { cardRegistry } from '../utils/cardRegistry';
 
 const props = defineProps<{
   labyrinth: ChordLabyrinth | null;
@@ -98,49 +99,10 @@ function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {
 
 function onPillToggle(nodeIdx: number, active: boolean) {
   if (!props.labyrinth) return;
-  highlightSVGNode(props.labyrinth.id, nodeIdx, active);
-}
-
-function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
-  const uid = `u${labId}`;
-  const modal = document.getElementById('lab-modal');
-  if (!modal) return;
-  const g = modal.querySelector<SVGGElement>(
-    `.node-g[data-id="${uid}"][data-node="${nodeIdx}"]`,
-  );
-  if (!g) return;
-  const arc = modal.querySelector<SVGPathElement>(
-    `.arc[data-id="${uid}"][data-arc="${nodeIdx}"]`,
-  );
-  const circle = g.querySelector<SVGCircleElement>('.node-bg');
-  const txt = g.querySelector<SVGTextElement>('text');
-  if (!circle) return;
-  const acc = circle.dataset.acc ?? '';
-  const isRoot = circle.dataset.root === 'true';
-
-  const cardColor = circle.dataset.stroke ?? acc;
-  if (on) {
-    if (arc) {
-      arc.setAttribute('stroke-opacity', '1');
-      arc.setAttribute('stroke-width', '2.4');
-      arc.setAttribute('filter', `url(#glow${uid})`);
-    }
-    circle.setAttribute('stroke', cardColor);
-    circle.setAttribute('stroke-width', '2.5');
-    circle.setAttribute('fill', cardColor);
-    if (txt) txt.setAttribute('fill', '#0f0f14');
-  } else {
-    if (arc) {
-      arc.setAttribute('stroke-opacity', '0.65');
-      arc.setAttribute('stroke-width', '1.3');
-      arc.removeAttribute('filter');
-    }
-    circle.setAttribute('stroke', circle.dataset.stroke ?? '');
-    circle.setAttribute('stroke-width', isRoot ? '2.5' : '1.2');
-    circle.setAttribute('fill', circle.dataset.defaultFill ?? '');
-    if (txt) txt.setAttribute('fill', txt.dataset.defaultFill ?? '');
-  }
-  g.setAttribute('aria-pressed', String(on));
+  // Update modal SVG
+  highlightSVGNode(props.labyrinth.id, nodeIdx, active, document.getElementById('lab-modal'));
+  // Mirror selection onto the card (pill state + SVG) via the registry
+  cardRegistry.get(props.labyrinth.id)?.(nodeIdx, active);
 }
 </script>
 

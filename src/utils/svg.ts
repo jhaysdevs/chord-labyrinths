@@ -138,3 +138,52 @@ export function buildSVG(lab: ChordLabyrinth, size: number): string {
     ${defs}${bgCircle}${ring1}${ring2}${innerRing}${spokes}${arcPaths}${nodeElems}${centerDot}
   </svg>`;
 }
+
+/**
+ * Apply or remove the highlight state for a single chord node within a given
+ * DOM container (a card root or #lab-modal). Call once per container that
+ * needs updating so both card and modal SVGs stay in sync.
+ */
+export function highlightSVGNode(
+  labId: number,
+  nodeIdx: number,
+  on: boolean,
+  container: Element | null,
+): void {
+  if (!container) return;
+  const uid = `u${labId}`;
+  const g = container.querySelector<SVGGElement>(
+    `.node-g[data-id="${uid}"][data-node="${nodeIdx}"]`,
+  );
+  if (!g) return;
+  const arc = container.querySelector<SVGPathElement>(
+    `.arc[data-id="${uid}"][data-arc="${nodeIdx}"]`,
+  );
+  const circle = g.querySelector<SVGCircleElement>('.node-bg');
+  const txt = g.querySelector<SVGTextElement>('text');
+  if (!circle) return;
+  const isRoot = circle.dataset.root === 'true';
+  const cardColor = circle.dataset.stroke ?? circle.dataset.acc ?? '';
+  if (on) {
+    if (arc) {
+      arc.setAttribute('stroke-opacity', '1');
+      arc.setAttribute('stroke-width', '2.4');
+      arc.setAttribute('filter', `url(#glow${uid})`);
+    }
+    circle.setAttribute('stroke', cardColor);
+    circle.setAttribute('stroke-width', '2.5');
+    circle.setAttribute('fill', cardColor);
+    if (txt) txt.setAttribute('fill', '#0f0f14');
+  } else {
+    if (arc) {
+      arc.setAttribute('stroke-opacity', '0.65');
+      arc.setAttribute('stroke-width', '1.3');
+      arc.removeAttribute('filter');
+    }
+    circle.setAttribute('stroke', circle.dataset.stroke ?? '');
+    circle.setAttribute('stroke-width', isRoot ? '2.5' : '1.2');
+    circle.setAttribute('fill', circle.dataset.defaultFill ?? '');
+    if (txt) txt.setAttribute('fill', txt.dataset.defaultFill ?? '');
+  }
+  g.setAttribute('aria-pressed', String(on));
+}

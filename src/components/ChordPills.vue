@@ -53,7 +53,15 @@ function pillStyle(i: number) {
   };
 }
 
-defineExpose({ toggle });
+/** Silently sync pill state from an external source (e.g. modal → card) without re-emitting. */
+function setActive(i: number, active: boolean) {
+  if (active === activeChords.value.has(i)) return;
+  if (active) activeChords.value.add(i);
+  else activeChords.value.delete(i);
+  activeChords.value = new Set(activeChords.value);
+}
+
+defineExpose({ toggle, setActive });
 </script>
 
 <style lang="scss" scoped>

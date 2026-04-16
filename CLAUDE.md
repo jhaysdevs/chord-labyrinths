@@ -109,6 +109,18 @@ Derived lists (filtered, paginated) live in composables (`useFilteredChords`, `u
 
 `src/utils/svg.ts` exports `buildSVG(labyrinth, size)` which returns an SVG string rendered via `v-html` in `ChordCard`. Interactive nodes have class `.node-g` and `data-node` / `data-id` attributes. Chord pill toggles and SVG node highlights are kept in sync via `highlightSVGNode` in `ChordCard.vue`.
 
+### 5. Shared Interaction State — Modal ↔ Card
+
+**Design intent:** interactions inside the modal (toggling chord pills or clicking SVG nodes) must mirror back to the corresponding `.card` in the grid, and vice versa. The modal is an *expanded view* of the card — it does not own a separate selection state. When a chord is highlighted in the modal, the same chord should appear highlighted on the card behind it.
+
+**How it works today (and where to be careful):**
+
+- Each `ChordLabyrinth` gets a unique SVG scope token `uid = "u{id}"`. Both the card SVG and the modal SVG share the same `data-id`, so DOM queries keyed on `uid` can reach both.
+- `ChordCard.highlightSVGNode` uses an **unscoped** `document.querySelector` — it matches the first node in DOM order, which is the card (the modal is `<Teleport>`-ed to `<body>` and therefore comes later in the tree).
+- `Modal.highlightSVGNode` scopes its queries to `#lab-modal` only, so modal interactions currently do **not** propagate back to the card.
+
+**Rule:** when modifying either `highlightSVGNode` implementation, ensure that toggling a chord in one context also drives `highlightSVGNode` in the other. The cleanest approach is to pass a `container` argument to a shared helper and call it twice (once for the card root, once for `#lab-modal`) rather than relying on DOM order in an unscoped query.
+
 ---
 
 ## Styling

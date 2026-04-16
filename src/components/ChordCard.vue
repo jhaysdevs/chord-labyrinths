@@ -33,11 +33,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import type { ChordLabyrinth } from '../types/chords';
 import ChordPills from './ChordPills.vue';
-import { buildSVG } from '../utils/svg';
+import { buildSVG, highlightSVGNode } from '../utils/svg';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import { cardRegistry } from '../utils/cardRegistry';
 
 const props = defineProps<{
   labyrinth: ChordLabyrinth;
@@ -49,10 +50,22 @@ defineEmits<{
 }>();
 
 const cardRef = ref<HTMLElement | null>(null);
-const chordPillsRef = ref<{ toggle: (i: number) => void } | null>(null);
+const chordPillsRef = ref<{ toggle: (i: number) => void; setActive: (i: number, active: boolean) => void } | null>(null);
 useScrollReveal(cardRef, (props.displayIndex % 16) * 0.03);
 
 const svgMarkup = computed(() => buildSVG(props.labyrinth, 154));
+
+/**
+ * Called by Modal to silently mirror its selection onto this card
+ * (pill state + SVG highlight) without triggering a re-broadcast back.
+ */
+function syncChord(idx: number, active: boolean) {
+  chordPillsRef.value?.setActive(idx, active);
+  highlightSVGNode(props.labyrinth.id, idx, active, cardRef.value);
+}
+
+onMounted(() => { cardRegistry.set(props.labyrinth.id, syncChord); });
+onUnmounted(() => { cardRegistry.delete(props.labyrinth.id); });
 
 function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {
   if ('key' in e) {
@@ -67,47 +80,9 @@ function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {
 }
 
 function onPillToggle(nodeIdx: number, active: boolean) {
-  highlightSVGNode(props.labyrinth.id, nodeIdx, active);
-}
-
-function highlightSVGNode(labId: number, nodeIdx: number, on: boolean) {
-  const uid = `u${labId}`;
-  const g = document.querySelector<SVGGElement>(
-    `.node-g[data-id="${uid}"][data-node="${nodeIdx}"]`,
-  );
-  if (!g) return;
-  const arc = document.querySelector<SVGPathElement>(
-    `.arc[data-id="${uid}"][data-arc="${nodeIdx}"]`,
-  );
-  const circle = g.querySelector<SVGCircleElement>('.node-bg');
-  const txt = g.querySelector<SVGTextElement>('text');
-  if (!circle) return;
-  const acc = circle.dataset.acc ?? '';
-  const isRoot = circle.dataset.root === 'true';
-
-  const cardColor = circle.dataset.stroke ?? acc;
-  if (on) {
-    if (arc) {
-      arc.setAttribute('stroke-opacity', '1');
-      arc.setAttribute('stroke-width', '2.4');
-      arc.setAttribute('filter', `url(#glow${uid})`);
-    }
-    circle.setAttribute('stroke', cardColor);
-    circle.setAttribute('stroke-width', '2.5');
-    circle.setAttribute('fill', cardColor);
-    if (txt) txt.setAttribute('fill', '#0f0f14');
-  } else {
-    if (arc) {
-      arc.setAttribute('stroke-opacity', '0.65');
-      arc.setAttribute('stroke-width', '1.3');
-      arc.removeAttribute('filter');
-    }
-    circle.setAttribute('stroke', circle.dataset.stroke ?? '');
-    circle.setAttribute('stroke-width', isRoot ? '2.5' : '1.2');
-    circle.setAttribute('fill', circle.dataset.defaultFill ?? '');
-    if (txt) txt.setAttribute('fill', txt.dataset.defaultFill ?? '');
-  }
-  g.setAttribute('aria-pressed', String(on));
+  highlightSVGNode(props.labyrinth.id, nodeIdx, active, cardRef.value);
+  // Also sync the modal SVG if this card's modal is currently open
+  highlightSVGNode(props.labyrinth.id, nodeIdx, active, document.getElementById('lab-modal'));
 }
 </script>
 
