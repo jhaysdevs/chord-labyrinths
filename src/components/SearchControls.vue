@@ -146,6 +146,11 @@ watch(debouncedQuery, (val) => {
   width: 100%;
   display: flex;
   gap: 12px;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .search-input {
@@ -168,8 +173,9 @@ watch(debouncedQuery, (val) => {
     color: var(--text-dim);
   }
 
-  @include mobile {
+  @include tablet {
     width: 100%;
+    height: 30.5px;
   }
 }
 
