@@ -229,6 +229,12 @@ Pagination is **load-more** (not page-based): `visibleCount` grows by 16 on each
 
 ---
 
+## Mobile Input Zoom (iOS Safari)
+
+iOS Safari automatically zooms in when a focused `<input>` has `font-size < 16px`. Any input or multiselect search field styled below 16px must override to `font-size: 16px` inside `@include mobile` to suppress this. The fix is already applied to `.multiselect-search` in `SearchControls.vue`. Apply the same pattern to any future inputs that appear in the mobile layout.
+
+---
+
 ## Performance
 
 ### Resize jank with a full grid

@@ -268,6 +268,11 @@ watch(debouncedQuery, (val) => {
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+
+  // iOS Safari zooms in on focus when font-size < 16px — override for mobile.
+  @include mobile {
+    font-size: 16px;
+  }
 }
 
 :deep(.multiselect-placeholder) {
