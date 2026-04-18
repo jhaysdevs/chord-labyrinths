@@ -188,6 +188,13 @@ Tone.js provides Web Audio synthesis. `tones.ts` is imported by `ChordPills.vue`
 
 **Synth:** lazy singleton `PolySynth(Synth)` with a triangle oscillator and piano-like envelope (fast attack, 0.4 s decay, long 3 s release). `playChord` calls `Tone.start()` internally, so the only requirement from the caller is that it runs inside a user-gesture handler.
 
+**Rapid-click ordering:** `playChord` is `async` — it awaits `Tone.start()` before scheduling notes. Two problems arise under rapid clicks:
+
+1. **Async ordering** — external `stopAll()` calls fire synchronously before the `await` resolves, so by the time `triggerAttackRelease` runs the stop has already happened and new notes land on top of unreleased old ones.
+2. **Voice pool exhaustion** — `releaseAll()` only triggers the 3-second release *envelope*, not an immediate cut. Each rapid click occupies more PolySynth voices (still fading). Once all 32 voices are in the release phase, new `triggerAttackRelease` calls fail silently and no audio plays.
+
+**Fix:** inside `playChord`, after `await toneStart()`, the current synth is *disposed* (`_synth.dispose(); _synth = null`) rather than released. `dispose()` immediately frees all AudioNodes and cuts all audio unconditionally. `getSynth()` then recreates the PolySynth cheaply before triggering the new chord. Both steps happen in the same microtask as `triggerAttackRelease`, so the stop/play pair is atomic and correctly ordered regardless of how fast clicks queue up. External `stopAll()` calls from callers are kept as an additional immediate signal but correctness does not depend on them.
+
 ---
 
 ## Styling

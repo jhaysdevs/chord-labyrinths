@@ -239,6 +239,13 @@ function getSynth(): PolySynth {
  */
 export async function playChord(symbol: string, duration = '2n'): Promise<void> {
   await toneStart();
+  // Dispose the current synth to immediately cut all audio — releaseAll() only
+  // triggers the release envelope (3 s), which exhausts voice pool under rapid
+  // clicks. Disposing frees AudioNodes instantly; getSynth() recreates cheaply.
+  // Both steps run after the await so the stop/play pair is atomic per microtask,
+  // preserving correct ordering even when clicks queue up faster than the await
+  // resolves.
+  if (_synth) { _synth.dispose(); _synth = null; }
   getSynth().triggerAttackRelease(chordToNotes(symbol), duration);
 }
 
