@@ -138,6 +138,11 @@ function onPillToggle(nodeIdx: number, active: boolean) {
   align-items: center;
   justify-content: center;
   padding: 24px;
+
+  @include mobile {
+    padding: 4px;
+    align-items: stretch;
+  }
 }
 
 #modal-inner {
@@ -157,6 +162,8 @@ function onPillToggle(nodeIdx: number, active: boolean) {
 
   @include mobile {
     padding: 28px 20px 24px;
+    max-height: none;
+    height: 100%;
   }
 }
 
