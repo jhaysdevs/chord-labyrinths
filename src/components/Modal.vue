@@ -51,6 +51,7 @@ import ChordPills from './ChordPills.vue';
 import { buildSVG, highlightSVGNode } from '../utils/svg';
 import { cardRegistry } from '../utils/cardRegistry';
 import { modalRegistry } from '../utils/modalRegistry';
+import { stopAll, playChord } from '../utils/tones';
 
 const props = defineProps<{
   labyrinth: ChordLabyrinth | null;
@@ -111,6 +112,9 @@ function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {
   if (!g || !modalInnerRef.value?.contains(g)) return;
   const idx = Number(g.getAttribute('data-node'));
   if (Number.isNaN(idx)) return;
+  // Always play the chord on SVG circle click, even if the pill gate hasn't been reached.
+  stopAll();
+  playChord(props.labyrinth!.chords[idx]);
   chordPillsRef.value?.toggle(idx);
 }
 

@@ -161,9 +161,11 @@ Tone.js provides Web Audio synthesis. `tones.ts` is imported by `ChordPills.vue`
 | `stopAll` | `() → void` | Immediately silence all sounding notes |
 | `disposeSynth` | `() → void` | Tear down the PolySynth — call on app unmount |
 
-**Playback trigger rule:** `playChord` is called **only from direct user interaction** (chord pill click or SVG node click). Silent state operations — `setActive`, `syncChord`, and `onModalAfterEnter` — never call `playChord`. `useScrollReveal` does not trigger any pill interaction. Audio is always the result of an intentional user gesture.
+**Playback trigger rule:** `playChord` is called **only from direct user interaction**. Silent state operations — `setActive`, `syncChord`, and `onModalAfterEnter` — never call `playChord`. `useScrollReveal` does not trigger any pill interaction. Audio is always the result of an intentional user gesture.
 
-**Per-click behaviour:** `ChordPills.toggle` calls `stopAll()` then `playChord` on every click. If the pill is already active, the chord replays without changing state. If the pill is inactive and passes the sequential gate, it activates and plays.
+**Pill clicks:** `ChordPills.toggle` calls `stopAll()` then `playChord` on every click. If the pill is already active, the chord replays without changing state. If the pill is inactive and passes the sequential gate, it activates and plays.
+
+**SVG circle clicks:** `onSvgChordInteract` in `ChordCard` and `Modal` always calls `stopAll()` + `playChord(chords[idx])` unconditionally before calling `toggle`. This means clicking any SVG node plays its chord regardless of whether the sequential gate has been reached — audio is never blocked by the pill lock state. The `toggle` call that follows still applies the gate for visual state changes.
 
 **Sequential pill gate (`ChordPills`):**
 - All pills start inactive. No pill is auto-activated on card load or modal open.
