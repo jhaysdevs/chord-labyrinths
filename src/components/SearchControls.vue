@@ -97,6 +97,7 @@ const sortOptions = [
   { value: 'az', label: 'Sort: A–Z' },
   { value: 'chords-asc', label: 'Sort: Fewest Chords' },
   { value: 'chords-desc', label: 'Sort: Most Chords' },
+  { value: 'complex', label: 'Sort: Complex Chords' },
 ];
 
 const selectedSort = ref<SortOption>(filtersStore.sortOption);

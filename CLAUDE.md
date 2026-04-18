@@ -97,7 +97,7 @@ type SortOption = 'default' | 'az' | 'chords-asc' | 'chords-desc';
 | Store                  | Responsibility                                            |
 | ---------------------- | --------------------------------------------------------- |
 | `stores/chords.ts`     | Raw dataset loaded from JSON; `categories` getter         |
-| `stores/filters.ts`    | `searchQuery`, `selectedCategories`, `sortOption`; reset action |
+| `stores/filters.ts`    | `searchQuery`, `selectedCategories`, `sortOption`; reset action. `SortOption = 'default' \| 'az' \| 'chords-asc' \| 'chords-desc' \| 'complex'` |
 | `stores/pagination.ts` | `visibleCount` (load-more pattern, PAGE_SIZE = 16)        |
 
 Derived lists (filtered, paginated) live in composables (`useFilteredChords`, `usePaginatedChords`), not directly in stores.
@@ -206,6 +206,20 @@ Per-card dynamic colors use `--card-color` and `--card-accent` CSS variables set
 Typography: `'Crimson Pro'` (serif body), `'Playfair Display'` (card titles), `'Space Mono'` (monospace labels/metadata).
 
 Breakpoints: `$bp-tablet: 868px` (`@mixin tablet`), `$bp-mobile` (`@mixin mobile`). At the tablet breakpoint, grid cards go full-width and SVG canvas grows to 300px with 180px visual size.
+
+---
+
+## Sort Options
+
+| Value | Label | Logic |
+|---|---|---|
+| `default` | Sort: Default | Original dataset order |
+| `az` | Sort: A–Z | Alphabetical by title |
+| `chords-asc` | Sort: Fewest Chords | Ascending by `chords.length` |
+| `chords-desc` | Sort: Most Chords | Descending by `chords.length` |
+| `complex` | Sort: Complex Chords | Descending by the length of the longest chord symbol in the progression — longer symbols indicate more extensions/alterations |
+
+Sorting is applied in `src/utils/filtering.ts` after category and search filtering. Adding a new sort option requires: adding the value to `SortOption` in `types/chords.ts`, a new `case` in `filterChords`, and a new entry in the `sortOptions` array in `SearchControls.vue`.
 
 ---
 

@@ -35,6 +35,15 @@ export function filterChords(
     case 'chords-desc':
       result = [...result].sort((a, b) => b.chords.length - a.chords.length);
       break;
+    case 'complex':
+      // Sort by the length of the longest chord symbol in each progression (descending).
+      // Longer chord symbols indicate more extensions/alterations and therefore greater complexity.
+      result = [...result].sort(
+        (a, b) =>
+          Math.max(...b.chords.map((c) => c.length)) -
+          Math.max(...a.chords.map((c) => c.length)),
+      );
+      break;
   }
 
   return result;

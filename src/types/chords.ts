@@ -10,4 +10,4 @@ export type ChordLabyrinth = {
   accent: string;
 };
 
-export type SortOption = 'default' | 'az' | 'chords-asc' | 'chords-desc';
+export type SortOption = 'default' | 'az' | 'chords-asc' | 'chords-desc' | 'complex';
