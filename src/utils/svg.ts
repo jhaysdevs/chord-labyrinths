@@ -104,8 +104,10 @@ export function buildSVG(lab: ChordLabyrinth, size: number, visualSize = size): 
     .map((node, i) => {
       const isRoot = i === 0;
       const fsize = chordFontSize(node.chord, visualSize);
-      const nodeFill = isRoot ? lab.color : '#0f0f14';
-      const textFill = isRoot ? '#0f0f14' : '#ffffff';
+      // All nodes start inactive: dark fill, white text.
+      // The root node (i === 0) is distinguished only by a thicker stroke.
+      const nodeFill = '#0f0f14';
+      const textFill = '#ffffff';
       return `<g class="node-g" data-id="${uid}" data-node="${i}" role="button" tabindex="0"
         aria-pressed="false"
         aria-label="Toggle highlight: ${escapeAttr(node.chord)}"
@@ -113,7 +115,7 @@ export function buildSVG(lab: ChordLabyrinth, size: number, visualSize = size): 
       <circle class="node-bg" cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${nodeR}"
         fill="${nodeFill}"
         stroke="${lab.color}"
-        stroke-width="${isRoot ? 2.5 : 1.2}"
+        stroke-width="1.2"
         data-fill="${nodeFill}"
         data-default-fill="${nodeFill}"
         data-stroke="${lab.color}"
@@ -162,7 +164,6 @@ export function highlightSVGNode(
   const circle = g.querySelector<SVGCircleElement>('.node-bg');
   const txt = g.querySelector<SVGTextElement>('text');
   if (!circle) return;
-  const isRoot = circle.dataset.root === 'true';
   const cardColor = circle.dataset.stroke ?? circle.dataset.acc ?? '';
   if (on) {
     if (arc) {
@@ -181,7 +182,7 @@ export function highlightSVGNode(
       arc.removeAttribute('filter');
     }
     circle.setAttribute('stroke', circle.dataset.stroke ?? '');
-    circle.setAttribute('stroke-width', isRoot ? '2.5' : '1.2');
+    circle.setAttribute('stroke-width', '1.2');
     circle.setAttribute('fill', circle.dataset.defaultFill ?? '');
     if (txt) txt.setAttribute('fill', txt.dataset.defaultFill ?? '');
   }

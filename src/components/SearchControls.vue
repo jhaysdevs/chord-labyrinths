@@ -196,7 +196,7 @@ watch(debouncedQuery, (val) => {
 }
 
 .sort-wrap {
-  min-width: 190px;
+  min-width: 200px;
 }
 
 // ── Multiselect container ──────────────────────────────────────────

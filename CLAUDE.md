@@ -114,6 +114,8 @@ Derived lists (filtered, paginated) live in composables (`useFilteredChords`, `u
 
 `src/utils/svg.ts` exports `buildSVG(labyrinth, size, visualSize?)` which returns an SVG string rendered via `v-html` in `ChordCard` and `Modal`. The optional `visualSize` parameter decouples the canvas layout size from the visual scale of nodes and text — useful for tablet breakpoints where the canvas grows but node/font sizes stay proportional.
 
+**Default node appearance:** all nodes — including the first (root) — start with a dark fill (`#0f0f14`), white text, and uniform `stroke-width: 1.2`. No node is pre-highlighted or visually distinguished in the default state. `data-default-fill` on both the circle and text elements stores the inactive fill so `highlightSVGNode` can restore it correctly when toggling off.
+
 Interactive nodes have class `.node-g` and `data-node` / `data-id` attributes. The shared `highlightSVGNode(labId, nodeIdx, on, container)` helper applies fill, stroke, and arc highlight to a node — always pass an explicit container (`cardRef.value` or `document.getElementById('lab-modal')`) to avoid cross-card DOM collisions.
 
 ### 5. Shared Interaction State — Modal ↔ Card
