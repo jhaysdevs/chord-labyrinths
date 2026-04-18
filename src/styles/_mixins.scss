@@ -43,9 +43,7 @@
 }
 
 @mixin tablet {
-  // Uses the 796px tablet breakpoint defined in variables;
-  // inlined here for compatibility with the current Sass setup.
-  @media (max-width: 796px) {
+  @media (max-width: $bp-tablet) {
     @content;
   }
 }

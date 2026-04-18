@@ -35,16 +35,16 @@ function minRadiusForChord(chord: string, size: number): number {
   return Math.hypot(halfW, halfH) + pad;
 }
 
-export function buildSVG(lab: ChordLabyrinth, size: number): string {
+export function buildSVG(lab: ChordLabyrinth, size: number, visualSize = size): string {
   const cx = size / 2;
   const cy = size / 2;
   const n = lab.chords.length;
   const outerR = size * 0.4;
   const innerR = size * 0.2;
-  const fallbackNodeR = Math.max(size * 0.062, 9);
+  const fallbackNodeR = Math.max(visualSize * 0.062, 9);
   const nodeR = Math.max(
     fallbackNodeR,
-    ...lab.chords.map((c) => minRadiusForChord(c, size)),
+    ...lab.chords.map((c) => minRadiusForChord(c, visualSize)),
   );
   const uid = `u${lab.id}`;
 
@@ -103,7 +103,7 @@ export function buildSVG(lab: ChordLabyrinth, size: number): string {
   const nodeElems = nodes
     .map((node, i) => {
       const isRoot = i === 0;
-      const fsize = chordFontSize(node.chord, size);
+      const fsize = chordFontSize(node.chord, visualSize);
       const nodeFill = isRoot ? lab.color : '#0f0f14';
       const textFill = isRoot ? '#0f0f14' : '#ffffff';
       return `<g class="node-g" data-id="${uid}" data-node="${i}" role="button" tabindex="0"

@@ -61,7 +61,11 @@ function setActive(i: number, active: boolean) {
   activeChords.value = new Set(activeChords.value);
 }
 
-defineExpose({ toggle, setActive });
+function getActive(): Set<number> {
+  return new Set(activeChords.value);
+}
+
+defineExpose({ toggle, setActive, getActive });
 </script>
 
 <style lang="scss" scoped>

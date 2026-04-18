@@ -111,15 +111,32 @@ Derived lists (filtered, paginated) live in composables (`useFilteredChords`, `u
 
 ### 5. Shared Interaction State — Modal ↔ Card
 
-**Design intent:** interactions inside the modal (toggling chord pills or clicking SVG nodes) must mirror back to the corresponding `.card` in the grid, and vice versa. The modal is an *expanded view* of the card — it does not own a separate selection state. When a chord is highlighted in the modal, the same chord should appear highlighted on the card behind it.
+**Design intent:** the modal is an *expanded view* of the card, not an independent context. Toggling a `.chord-pill` button or clicking an SVG node in either the modal or the card must produce identical visual state in both — the same pill is active, the same SVG node is highlighted, in both places simultaneously.
 
-**How it works today (and where to be careful):**
+**What "shared state" covers:**
 
-- Each `ChordLabyrinth` gets a unique SVG scope token `uid = "u{id}"`. Both the card SVG and the modal SVG share the same `data-id`, so DOM queries keyed on `uid` can reach both.
-- `ChordCard.highlightSVGNode` uses an **unscoped** `document.querySelector` — it matches the first node in DOM order, which is the card (the modal is `<Teleport>`-ed to `<body>` and therefore comes later in the tree).
-- `Modal.highlightSVGNode` scopes its queries to `#lab-modal` only, so modal interactions currently do **not** propagate back to the card.
+- `.chord-pill` button active state (filled/colored vs. outline) — `ChordPills.activeChords`
+- SVG node fill, stroke, and arc highlight — driven by `highlightSVGNode` in `src/utils/svg.ts`
 
-**Rule:** when modifying either `highlightSVGNode` implementation, ensure that toggling a chord in one context also drives `highlightSVGNode` in the other. The cleanest approach is to pass a `container` argument to a shared helper and call it twice (once for the card root, once for `#lab-modal`) rather than relying on DOM order in an unscoped query.
+**How it is implemented:**
+
+| Piece | File | Role |
+|---|---|---|
+| `highlightSVGNode(labId, nodeIdx, on, container)` | `src/utils/svg.ts` | Shared helper — pass the card root or `#lab-modal` as `container`. Call once per container that needs updating. |
+| `cardRegistry` | `src/utils/cardRegistry.ts` | Module-level `Map<labyrinthId, syncChord>`. Cards register on mount, deregister on unmount. Modal looks up the live card by id. |
+| `ChordPills.setActive(i, active)` | `ChordPills.vue` | Silent state setter — updates `activeChords` without emitting `toggle`. Used for cross-context sync to avoid feedback loops. |
+| `ChordCard.syncChord(idx, active)` | `ChordCard.vue` | Calls `setActive` on the card's `ChordPills` + `highlightSVGNode` on the card container. Registered in `cardRegistry` on mount. |
+
+**Data flow:**
+
+- **Modal pill/node toggled →** `Modal.onPillToggle` calls `highlightSVGNode` on `#lab-modal`, then calls `cardRegistry.get(id)` to invoke `ChordCard.syncChord` — updating the card's pill buttons and SVG silently.
+- **Card pill/node toggled →** `ChordCard.onPillToggle` calls `highlightSVGNode` on the card container and also on `#lab-modal` (a no-op when the modal is closed, since `null` is handled gracefully).
+
+**Rules for future changes:**
+
+- Never add a second `ChordPills` instance per labyrinth with its own isolated state. Pill state must always flow through `syncChord` / `setActive` when crossing the card↔modal boundary.
+- Always call `highlightSVGNode` with an explicit container — never use an unscoped `document.querySelector` for SVG node selection, as both card and modal share the same `data-id` tokens and DOM order is not guaranteed.
+- `setActive` intentionally does not emit. Do not change it to emit — that would create a sync loop (modal → card → modal → …).
 
 ---
 

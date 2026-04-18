@@ -38,6 +38,7 @@ import type { ChordLabyrinth } from '../types/chords';
 import ChordPills from './ChordPills.vue';
 import { buildSVG, highlightSVGNode } from '../utils/svg';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import { useMediaQuery } from '../composables/useMediaQuery';
 import { cardRegistry } from '../utils/cardRegistry';
 
 const props = defineProps<{
@@ -50,10 +51,19 @@ defineEmits<{
 }>();
 
 const cardRef = ref<HTMLElement | null>(null);
-const chordPillsRef = ref<{ toggle: (i: number) => void; setActive: (i: number, active: boolean) => void } | null>(null);
+const chordPillsRef = ref<{
+  toggle: (i: number) => void;
+  setActive: (i: number, active: boolean) => void;
+  getActive: () => Set<number>;
+} | null>(null);
 useScrollReveal(cardRef, (props.displayIndex % 16) * 0.03);
 
-const svgMarkup = computed(() => buildSVG(props.labyrinth, 154));
+const isTablet = useMediaQuery('(max-width: 868px)');
+const svgMarkup = computed(() =>
+  isTablet.value
+    ? buildSVG(props.labyrinth, 300, 180)
+    : buildSVG(props.labyrinth, 154),
+);
 
 /**
  * Called by Modal to silently mirror its selection onto this card
@@ -64,7 +74,11 @@ function syncChord(idx: number, active: boolean) {
   highlightSVGNode(props.labyrinth.id, idx, active, cardRef.value);
 }
 
-onMounted(() => { cardRegistry.set(props.labyrinth.id, syncChord); });
+function getActiveChords(): Set<number> {
+  return chordPillsRef.value?.getActive() ?? new Set();
+}
+
+onMounted(() => { cardRegistry.set(props.labyrinth.id, { syncChord, getActiveChords }); });
 onUnmounted(() => { cardRegistry.delete(props.labyrinth.id); });
 
 function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {

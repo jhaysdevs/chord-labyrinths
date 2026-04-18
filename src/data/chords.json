@@ -248,20 +248,7 @@
     "category": "Jazz",
     "color": "#27ae60",
     "accent": "#f39c12",
-    "chords": [
-      "I7",
-      "IV7",
-      "I7",
-      "I7",
-      "IV7",
-      "IV7",
-      "I7",
-      "vi7",
-      "ii7",
-      "V7",
-      "I7",
-      "V7"
-    ],
+    "chords": ["I7", "IV7", "I7", "I7", "IV7", "IV7", "I7", "vi7", "ii7", "V7", "I7", "V7"],
     "example": "Billie's Bounce · Now's the Time · Cheryl · Chi Chi",
     "description": "Parker's twelve-bar reharmonization. Every bar a harmonic surprise."
   },
@@ -349,20 +336,7 @@
     "category": "Blues",
     "color": "#b7950b",
     "accent": "#e74c3c",
-    "chords": [
-      "I7",
-      "I7",
-      "I7",
-      "I7",
-      "IV7",
-      "IV7",
-      "I7",
-      "I7",
-      "V7",
-      "IV7",
-      "I7",
-      "V7"
-    ],
+    "chords": ["I7", "I7", "I7", "I7", "IV7", "IV7", "I7", "I7", "V7", "IV7", "I7", "V7"],
     "example": "Crossroads · Pride & Joy · Johnny B. Goode · Sweet Little Angel",
     "description": "The blueprint of Western popular music. Every bar breathes with the blues."
   },
@@ -373,20 +347,7 @@
     "category": "Blues",
     "color": "#12d4ff",
     "accent": "#ed2b00",
-    "chords": [
-      "I7",
-      "IV7",
-      "I7",
-      "I7",
-      "IV7",
-      "IV7",
-      "I7",
-      "I7",
-      "V7",
-      "IV7",
-      "I7",
-      "V7"
-    ],
+    "chords": ["I7", "IV7", "I7", "I7", "IV7", "IV7", "I7", "I7", "V7", "IV7", "I7", "V7"],
     "example": "Sweet Home Chicago · Kansas City · Rock Me Baby",
     "description": "The IV in bar 2 adds impatience. The blues in a hurry."
   },
@@ -397,20 +358,7 @@
     "category": "Blues",
     "color": "#ed00b9",
     "accent": "#12ff46",
-    "chords": [
-      "i7",
-      "i7",
-      "i7",
-      "i7",
-      "iv7",
-      "iv7",
-      "i7",
-      "i7",
-      "♭VI7",
-      "V7",
-      "i7",
-      "V7"
-    ],
+    "chords": ["i7", "i7", "i7", "i7", "iv7", "iv7", "i7", "i7", "♭VI7", "V7", "i7", "V7"],
     "example": "The Thrill Is Gone · All Blues · Little Wing",
     "description": "When the blues goes dark, the dominant 7ths become menacing."
   },
@@ -2025,8 +1973,8 @@
     "title": "The Nick Drake Shade",
     "subtitle": "Fingerpicking Dark Loop",
     "category": "Singer-Songwriter",
-    "color": "#5d4037",
-    "accent": "#f7dc6f",
+    "color": "#e65326",
+    "accent": "#19acd9",
     "chords": ["im", "♭VI", "♭III", "♭VII"],
     "example": "Pink Moon · River Man · Cello Song",
     "description": "Open tunings and modal minor cycling. The loneliest loop in the folk canon."
@@ -2126,16 +2074,7 @@
     "category": "Jazz",
     "color": "#FF00FF",
     "accent": "#00FF88",
-    "chords": [
-      "Imaj7",
-      "III7",
-      "VImaj7",
-      "I7",
-      "IVmaj7",
-      "♭VI7",
-      "♭IImaj7",
-      "V7"
-    ],
+    "chords": ["Imaj7", "III7", "VImaj7", "I7", "IVmaj7", "♭VI7", "♭IImaj7", "V7"],
     "example": "Giant Steps · Countdown · Mr. P.C. reharmonized · 26-2 extended",
     "description": "The Coltrane cycle stretched to eight bars — three tonal centers each a major third apart, cycling through dominant resolutions that never rest."
   },
@@ -2146,16 +2085,7 @@
     "category": "Jazz",
     "color": "#00FFFF",
     "accent": "#FF0077",
-    "chords": [
-      "ii9",
-      "V13sus4",
-      "Imaj9♯11",
-      "♭VIImaj7",
-      "♭IIImaj7",
-      "♭VImaj7",
-      "ii9",
-      "V7♭9"
-    ],
+    "chords": ["ii9", "V13sus4", "Imaj9♯11", "♭VIImaj7", "♭IIImaj7", "♭VImaj7", "ii9", "V7♭9"],
     "example": "Maiden Voyage · Dolphin Dance · Eye of the Hurricane · Speak Like a Child",
     "description": "Suspended dominants give way to chromatic major 7ths before returning. Post-bop impressionism at its most aquatic."
   },
@@ -2166,16 +2096,7 @@
     "category": "Jazz",
     "color": "#FF6600",
     "accent": "#0099FF",
-    "chords": [
-      "imaj7",
-      "♭IImaj7",
-      "IVmaj7",
-      "♭IIImaj7",
-      "♭VImaj7",
-      "♭VIImaj7",
-      "imaj7",
-      "V7♭9♯11"
-    ],
+    "chords": ["imaj7", "♭IImaj7", "IVmaj7", "♭IIImaj7", "♭VImaj7", "♭VIImaj7", "imaj7", "V7♭9♯11"],
     "example": "Witch Hunt · Infant Eyes · Footprints extended · JuJu",
     "description": "Keys drift by half-step and minor third — no functional harmony, only chromatic gravity pulling the loop inward."
   },
@@ -2206,16 +2127,7 @@
     "category": "Jazz",
     "color": "#FF0044",
     "accent": "#00FFCC",
-    "chords": [
-      "Imaj7",
-      "♯IVm7♭5",
-      "♭VII7",
-      "IIImaj7",
-      "♭VI7",
-      "♭IImaj7",
-      "V7♯9",
-      "Imaj7"
-    ],
+    "chords": ["Imaj7", "♯IVm7♭5", "♭VII7", "IIImaj7", "♭VI7", "♭IImaj7", "V7♯9", "Imaj7"],
     "example": "Confirmation reharmonized · Ko-Ko changes · Donna Lee reharmonized",
     "description": "Parker's bebop forms stripped back and rebuilt with tritone subs and chromatic mediants throughout."
   },
@@ -2226,16 +2138,7 @@
     "category": "Jazz",
     "color": "#FFFF00",
     "accent": "#FF0099",
-    "chords": [
-      "Imaj7",
-      "♭IIImaj7",
-      "ii7",
-      "♭V7",
-      "Imaj7",
-      "IV7♯11",
-      "iii7",
-      "♭VI7"
-    ],
+    "chords": ["Imaj7", "♭IIImaj7", "ii7", "♭V7", "Imaj7", "IV7♯11", "iii7", "♭VI7"],
     "example": "E.S.P. · Nefertiti · Agitation · Gingerbread Boy",
     "description": "The second great quintet's harmonic language — time, no changes, until it suddenly changes completely."
   },
@@ -2257,16 +2160,7 @@
     "category": "Jazz",
     "color": "#FF3366",
     "accent": "#00CCFF",
-    "chords": [
-      "Imaj9",
-      "IVmaj9♯11",
-      "iii9",
-      "♭VIImaj7",
-      "ii9",
-      "♭IImaj7",
-      "Imaj9",
-      "V9sus4"
-    ],
+    "chords": ["Imaj9", "IVmaj9♯11", "iii9", "♭VIImaj7", "ii9", "♭IImaj7", "Imaj9", "V9sus4"],
     "example": "Bright Size Life · Are You Going With Me? · Letter from Home",
     "description": "Open-voiced major 9ths cycling through lydian and mixolydian color without resolution. Pure tonal landscape."
   },
@@ -2288,16 +2182,7 @@
     "category": "Jazz",
     "color": "#FF00AA",
     "accent": "#00FF44",
-    "chords": [
-      "Imaj7",
-      "♯Ivdim7",
-      "iii7",
-      "VI7♭9",
-      "ii7",
-      "♭II7",
-      "Imaj7",
-      "V7sus4"
-    ],
+    "chords": ["Imaj7", "♯Ivdim7", "iii7", "VI7♭9", "ii7", "♭II7", "Imaj7", "V7sus4"],
     "example": "Red Clay · Hub-Tones · Little Sunflower · Birdlike",
     "description": "The passing diminished chord adds chromatic bite to an otherwise smooth major cycle."
   },
@@ -2341,20 +2226,7 @@
     "category": "Jazz",
     "color": "#FF5500",
     "accent": "#00AAFF",
-    "chords": [
-      "I7",
-      "IV7",
-      "I7",
-      "♭VII7",
-      "IV7",
-      "♭V7",
-      "I7",
-      "VI7",
-      "ii7",
-      "V7",
-      "I7",
-      "♭II7"
-    ],
+    "chords": ["I7", "IV7", "I7", "♭VII7", "IV7", "♭V7", "I7", "VI7", "ii7", "V7", "I7", "♭II7"],
     "example": "St. Thomas · Moritat · Blue Seven · Tenor Madness",
     "description": "Blues with tritone sub on bar twelve and ♭VII modal color. The tenor saxophone's definitive statement."
   },
@@ -2365,16 +2237,7 @@
     "category": "Jazz",
     "color": "#00FF77",
     "accent": "#FF0077",
-    "chords": [
-      "Imaj7",
-      "♭IIImaj7",
-      "♭VImaj7",
-      "♭IImaj7",
-      "Imaj7",
-      "V7♯11",
-      "IV7",
-      "♭VII7"
-    ],
+    "chords": ["Imaj7", "♭IIImaj7", "♭VImaj7", "♭IImaj7", "Imaj7", "V7♯11", "IV7", "♭VII7"],
     "example": "Bolivia · Ojos de Rojo · Holy Land · Fantasy in D",
     "description": "Coltrane substitutions embedded within a blues-inflected major progression. Architecture within architecture."
   },
@@ -2385,16 +2248,7 @@
     "category": "Jazz",
     "color": "#FF1177",
     "accent": "#11FF77",
-    "chords": [
-      "Imaj7",
-      "♭IIIdim7",
-      "ii7",
-      "♭II7",
-      "Imaj7",
-      "VI7♭9",
-      "ii7♭5",
-      "V7♭9"
-    ],
+    "chords": ["Imaj7", "♭IIIdim7", "ii7", "♭II7", "Imaj7", "VI7♭9", "ii7♭5", "V7♭9"],
     "example": "Soul Station · This I Dig of You · Workout · Remember",
     "description": "The chromatic approach to ii–V with a half-diminished at the turn. Soul Station refinement."
   },
@@ -2416,16 +2270,7 @@
     "category": "Jazz",
     "color": "#FF0000",
     "accent": "#00FFFF",
-    "chords": [
-      "Imaj7",
-      "♭VImaj7",
-      "♭IImaj7",
-      "V7♯9♯11",
-      "Imaj7",
-      "♭III7",
-      "♭VI7",
-      "♭II7"
-    ],
+    "chords": ["Imaj7", "♭VImaj7", "♭IImaj7", "V7♯9♯11", "Imaj7", "♭III7", "♭VI7", "♭II7"],
     "example": "Tiger Rag · Tea for Two · Over the Rainbow reharmonized",
     "description": "Tatum's famous reharmonizations distilled to an eight-bar loop. Every chord a surprise; none out of place."
   },
@@ -2436,16 +2281,7 @@
     "category": "Jazz",
     "color": "#00FF22",
     "accent": "#FF0088",
-    "chords": [
-      "Imaj9",
-      "vi7♭5",
-      "♭VI7",
-      "ii7",
-      "V7♯11",
-      "♭VIImaj7",
-      "iii7",
-      "♭II7"
-    ],
+    "chords": ["Imaj9", "vi7♭5", "♭VI7", "ii7", "V7♯11", "♭VIImaj7", "iii7", "♭II7"],
     "example": "Hymn to Freedom · Night Train · Hallelujah Time",
     "description": "Peterson's harmonic efficiency — each chord serves double duty as both destination and departure."
   },
@@ -2456,16 +2292,7 @@
     "category": "Jazz",
     "color": "#FFCC00",
     "accent": "#0033FF",
-    "chords": [
-      "Imaj7",
-      "♯IVdim7",
-      "IV7",
-      "♭IVm7",
-      "Imaj7",
-      "VI7♭9",
-      "iim7♭5",
-      "V7♭9♯11"
-    ],
+    "chords": ["Imaj7", "♯IVdim7", "IV7", "♭IVm7", "Imaj7", "VI7♭9", "iim7♭5", "V7♭9♯11"],
     "example": "Un Poco Loco · Tempus Fugit · Hallucinations · Glass Enclosure",
     "description": "Two passing diminished chords create maximum chromatic density. Bebop's most precise loop."
   },
@@ -2531,16 +2358,7 @@
     "category": "Progressive Rock",
     "color": "#00FF88",
     "accent": "#FF0055",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "i7",
-      "IV7",
-      "V7sus4",
-      "V7"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "i7", "IV7", "V7sus4", "V7"],
     "example": "Echoes · Shine On You Crazy Diamond · Dogs · Pigs on the Wing",
     "description": "Seven-bar cycles dissolving into sustained major 7ths before arriving at blues tonality."
   },
@@ -2573,16 +2391,7 @@
     "category": "Progressive Rock",
     "color": "#FF5500",
     "accent": "#00AAFF",
-    "chords": [
-      "Imaj7",
-      "♭IIImaj7",
-      "IVmaj7",
-      "♭II7",
-      "iii7",
-      "♭VII7",
-      "ii7",
-      "V7♯11"
-    ],
+    "chords": ["Imaj7", "♭IIImaj7", "IVmaj7", "♭II7", "iii7", "♭VII7", "ii7", "V7♯11"],
     "example": "Soft Machine Third · Caravan extended · Hatfield and the North",
     "description": "Jazz harmony filtered through English prog minimalism. Each chord a color on a rainy day."
   },
@@ -2659,16 +2468,7 @@
     "category": "Progressive Rock",
     "color": "#8800FF",
     "accent": "#FFEE00",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "♭VImaj7",
-      "IV",
-      "♭III",
-      "♭VI",
-      "♭VII",
-      "I"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "♭VImaj7", "IV", "♭III", "♭VI", "♭VII", "I"],
     "example": "Fear of a Blank Planet · Trains · The Sound of Muzak · Deadwing",
     "description": "Floating major 7ths descend into heavier borrowed chords — the Wilson gradient from luminous to oppressive."
   },
@@ -2690,16 +2490,7 @@
     "category": "Progressive Rock",
     "color": "#33FFEE",
     "accent": "#FF3300",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VII7",
-      "i7",
-      "♭IImaj7",
-      "♭VImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VII7", "i7", "♭IImaj7", "♭VImaj7", "V7sus4"],
     "example": "Pyramid Song · Weird Fishes · All I Need · Motion Picture Soundtrack",
     "description": "Major 7ths over minor tonality — Thom Yorke's harmonic world of exquisite ambiguity."
   },
@@ -2710,16 +2501,7 @@
     "category": "Progressive Rock",
     "color": "#FF00FF",
     "accent": "#00FF77",
-    "chords": [
-      "imaj7",
-      "♭IImaj7",
-      "♭VImaj7",
-      "IVmaj7",
-      "♭III",
-      "♭VII",
-      "V7♭9♯11",
-      "i"
-    ],
+    "chords": ["imaj7", "♭IImaj7", "♭VImaj7", "IVmaj7", "♭III", "♭VII", "V7♭9♯11", "i"],
     "example": "Human Behaviour · Jóga · Hyperballad · Bachelorette",
     "description": "Scandinavian harmonic logic — minor tonality orbiting chromatic major 7ths. Volcanic and crystalline."
   },
@@ -2818,16 +2600,7 @@
     "category": "Metal",
     "color": "#FF9900",
     "accent": "#0066FF",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "♭VImaj7",
-      "i",
-      "♭III",
-      "♭VII",
-      "♭VI",
-      "♭II"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "♭VImaj7", "i", "♭III", "♭VII", "♭VI", "♭II"],
     "example": "Panopticon · Oceanic · In the Absence of Truth · Wavering Radiant",
     "description": "Isis shifts from post-rock luminosity to metal gravity over the same chord palette."
   },
@@ -2959,16 +2732,7 @@
     "category": "Film/Cinematic",
     "color": "#00FF88",
     "accent": "#FF0055",
-    "chords": [
-      "Imaj9",
-      "♭VImaj9",
-      "♭IIImaj9",
-      "♭VIImaj9",
-      "Imaj9",
-      "IVmaj9",
-      "V9sus4",
-      "Imaj9"
-    ],
+    "chords": ["Imaj9", "♭VImaj9", "♭IIImaj9", "♭VIImaj9", "Imaj9", "IVmaj9", "V9sus4", "Imaj9"],
     "example": "Chariots of Fire · Blade Runner · 1492 · Alexander",
     "description": "Cascading major 9ths in the synthesizer age. Vangelis's cosmic harmonic tapestry."
   },
@@ -3116,16 +2880,7 @@
     "category": "Jazz",
     "color": "#FF00AA",
     "accent": "#00FF55",
-    "chords": [
-      "imaj7",
-      "♭II7♯11",
-      "♭VImaj7",
-      "IV7",
-      "♭IIImaj7",
-      "♭VII7♯11",
-      "imaj7",
-      "V7♭9♯9"
-    ],
+    "chords": ["imaj7", "♭II7♯11", "♭VImaj7", "IV7", "♭IIImaj7", "♭VII7♯11", "imaj7", "V7♭9♯9"],
     "example": "Historicity · Accelerando · Break Stuff · Mutations",
     "description": "Vijay Iyer's post-jazz harmonic syntax — African rhythm meets South Asian microtone meets jazz theory."
   },
@@ -3136,16 +2891,7 @@
     "category": "Jazz",
     "color": "#FFFF00",
     "accent": "#AA00FF",
-    "chords": [
-      "imaj7",
-      "♭VImaj7♯11",
-      "♭IIImaj7",
-      "♭VII7",
-      "imaj7",
-      "IVmaj7",
-      "♭IImaj7♯11",
-      "V7♭9"
-    ],
+    "chords": ["imaj7", "♭VImaj7♯11", "♭IIImaj7", "♭VII7", "imaj7", "IVmaj7", "♭IImaj7♯11", "V7♭9"],
     "example": "When the Heart Emerges Glistening · on the tender spot of every calloused moment",
     "description": "Akinmusire's harmonic language: lush major 7ths over minor tonality, always reaching toward light."
   },
@@ -3176,16 +2922,7 @@
     "category": "Jazz",
     "color": "#FF3300",
     "accent": "#00CCFF",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "i7",
-      "IV7",
-      "V7sus4",
-      "V7♭9"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "i7", "IV7", "V7sus4", "V7♭9"],
     "example": "The Epic · Harmony of Difference · Heaven and Earth · The Choice",
     "description": "Washington's neo-spiritual jazz cycles — Coltrane's harmonics filtered through LA cosmic consciousness."
   },
@@ -3196,16 +2933,7 @@
     "category": "Jazz",
     "color": "#AA00FF",
     "accent": "#FFFF00",
-    "chords": [
-      "imaj9",
-      "♭VImaj9",
-      "♭IIImaj9",
-      "♭VII7♯11",
-      "imaj9",
-      "IVmaj9",
-      "♭IImaj9",
-      "V13sus4"
-    ],
+    "chords": ["imaj9", "♭VImaj9", "♭IIImaj9", "♭VII7♯11", "imaj9", "IVmaj9", "♭IImaj9", "V13sus4"],
     "example": "Black Radio · Covered · Canvas · Robert Glasper Experiment",
     "description": "Hip-hop rhythm meets jazz harmony meets R&B soul. Minor 9th clouds drifting through flat-side territory."
   },
@@ -3293,16 +3021,7 @@
     "category": "Latin Jazz",
     "color": "#FF0099",
     "accent": "#00FFFF",
-    "chords": [
-      "imaj7",
-      "♭IImaj7",
-      "♭VImaj7",
-      "IV7♯11",
-      "imaj7",
-      "♭IIImaj7",
-      "V7♭9♯9",
-      "imaj7"
-    ],
+    "chords": ["imaj7", "♭IImaj7", "♭VImaj7", "IV7♯11", "imaj7", "♭IIImaj7", "V7♭9♯9", "imaj7"],
     "example": "Irakere · Bele Bele en La Habana · Invitación · Lucía",
     "description": "Coltrane subs plus Afro-Cuban rhythm section — the most harmonically dense Latin jazz loop."
   },
@@ -3313,16 +3032,7 @@
     "category": "Latin Jazz",
     "color": "#AAFF00",
     "accent": "#CC00FF",
-    "chords": [
-      "Imaj7",
-      "♯IVdim7",
-      "IV7",
-      "♭IVm7",
-      "Imaj7",
-      "VI7♭9",
-      "ii7",
-      "V7♯11"
-    ],
+    "chords": ["Imaj7", "♯IVdim7", "IV7", "♭IVm7", "Imaj7", "VI7♭9", "ii7", "V7♯11"],
     "example": "Manteca bebop · Havana Café · Get Me Out of Here",
     "description": "Parker's bebop grammar spoken with a Cuban accent — the clave underneath, jazz on top."
   },
@@ -3375,16 +3085,7 @@
     "category": "Latin Jazz",
     "color": "#FF6600",
     "accent": "#0099FF",
-    "chords": [
-      "Imaj7",
-      "♯IVm7♭5",
-      "IV7",
-      "♭IVmaj7",
-      "iii7♭5",
-      "♭III7",
-      "ii7",
-      "♭II7"
-    ],
+    "chords": ["Imaj7", "♯IVm7♭5", "IV7", "♭IVmaj7", "iii7♭5", "♭III7", "ii7", "♭II7"],
     "example": "Wave reharmonized · Triste extended · Fotografia advanced changes",
     "description": "Full chromatic descent from I to II—every chord a half-step lower. The most refined bossa path."
   },
@@ -3428,16 +3129,7 @@
     "category": "Electronic",
     "color": "#FFFF00",
     "accent": "#CC00FF",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "IVmaj7",
-      "♭IIImaj7",
-      "Imaj7",
-      "vi7",
-      "♭VImaj7",
-      "V7sus4"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "IVmaj7", "♭IIImaj7", "Imaj7", "vi7", "♭VImaj7", "V7sus4"],
     "example": "Harder Better Faster Stronger · Digital Love · Instant Crush · Something About Us",
     "description": "Funk samples rebuilt as synthesizer harmony. Major 7ths filtered through vocoder warmth."
   },
@@ -3468,16 +3160,7 @@
     "category": "Electronic",
     "color": "#FF3366",
     "accent": "#00CCFF",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "i7",
-      "IVmaj7♯11",
-      "♭IImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "i7", "IVmaj7♯11", "♭IImaj7", "V7sus4"],
     "example": "Orbital · The Box · Belfast · Halcyon",
     "description": "UK rave's electronic loop — minor 7ths stretched across eight-bar arpeggiated patterns."
   },
@@ -3508,16 +3191,7 @@
     "category": "Electronic",
     "color": "#FF0099",
     "accent": "#00FFAA",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭VII7",
-      "♭IIImaj7",
-      "i7",
-      "iv7",
-      "♭VImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭VII7", "♭IIImaj7", "i7", "iv7", "♭VImaj7", "V7sus4"],
     "example": "Untrue · Archangel · Raver · Shell of Light",
     "description": "Rain-soaked London electronics — minor cycles draped in chopped vocal samples and vinyl crackle."
   },
@@ -3548,16 +3222,7 @@
     "category": "Electronic",
     "color": "#FF5500",
     "accent": "#00AAFF",
-    "chords": [
-      "Imaj9",
-      "♭VIImaj9",
-      "IVmaj9♯11",
-      "♭IIImaj9",
-      "Imaj9",
-      "vi9",
-      "♭VImaj9",
-      "V9sus4"
-    ],
+    "chords": ["Imaj9", "♭VIImaj9", "IVmaj9♯11", "♭IIImaj9", "Imaj9", "vi9", "♭VImaj9", "V9sus4"],
     "example": "Rounds · Everything Ecstatic · There Is Love in You · Morning/Evening",
     "description": "Folk samples rebuilt as electronic harmony. Major 9ths cycling through warm filter sweeps."
   },
@@ -3619,16 +3284,7 @@
     "category": "Gospel",
     "color": "#FFFF00",
     "accent": "#CC00FF",
-    "chords": [
-      "Imaj7",
-      "IVmaj7",
-      "♭VIImaj7",
-      "♭IIImaj7",
-      "ii7",
-      "V7sus4",
-      "I",
-      "♭VII"
-    ],
+    "chords": ["Imaj7", "IVmaj7", "♭VIImaj7", "♭IIImaj7", "ii7", "V7sus4", "I", "♭VII"],
     "example": "Stomp · Revolution · I Smile · Melodies from Heaven",
     "description": "Kirk's hip-hop gospel synthesis — funk rhythms underneath lush major 7th church harmony."
   },
@@ -3661,16 +3317,7 @@
     "category": "Gospel",
     "color": "#0099FF",
     "accent": "#FF6600",
-    "chords": [
-      "Imaj7",
-      "vi7",
-      "IVmaj7",
-      "V7sus4",
-      "♭VIImaj7",
-      "♭IIImaj7",
-      "ii7",
-      "V7"
-    ],
+    "chords": ["Imaj7", "vi7", "IVmaj7", "V7sus4", "♭VIImaj7", "♭IIImaj7", "ii7", "V7"],
     "example": "Ordinary Just Won't Do · I'm Going On · Call Him · Anyway You Bless Me",
     "description": "Urban gospel's smooth jazz influence — major 7ths cycling over an R&B groove."
   },
@@ -3813,16 +3460,7 @@
     "category": "Pop/Rock",
     "color": "#AAFF00",
     "accent": "#CC00FF",
-    "chords": [
-      "i",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "i",
-      "♭IImaj7",
-      "V7sus4",
-      "V7"
-    ],
+    "chords": ["i", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "i", "♭IImaj7", "V7sus4", "V7"],
     "example": "Enjoy the Silence · Just Like Heaven · The Killing Moon · Bizarre Love Triangle",
     "description": "Minor aeolian arpeggios through synthesizer — post-punk emotion made danceable."
   },
@@ -3877,16 +3515,7 @@
     "category": "Pop/Rock",
     "color": "#FFCC00",
     "accent": "#3300FF",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "IVmaj7",
-      "♭VImaj7",
-      "i",
-      "♭III",
-      "♭VII",
-      "V7sus4"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "IVmaj7", "♭VImaj7", "i", "♭III", "♭VII", "V7sus4"],
     "example": "Godspeed You! Black Emperor · Explosions in the Sky · Mogwai · Sigur Rós",
     "description": "Pianissimo major 7ths build to fortissimo minor power chords. The post-rock arc in eight bars."
   },
@@ -3897,16 +3526,7 @@
     "category": "Pop/Rock",
     "color": "#00FF44",
     "accent": "#FF0099",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "♭VImaj7",
-      "IVmaj7♯11",
-      "Imaj7",
-      "♭IIImaj7",
-      "V7sus4",
-      "Imaj7"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "♭VImaj7", "IVmaj7♯11", "Imaj7", "♭IIImaj7", "V7sus4", "Imaj7"],
     "example": "Loveless · Souvlaki · Pygmalion · Nowhere",
     "description": "Major 7ths under walls of distorted guitar. The shoegaze ethos: beauty in noise."
   },
@@ -3970,16 +3590,7 @@
     "category": "Pop/Rock",
     "color": "#AAFF00",
     "accent": "#AA00FF",
-    "chords": [
-      "Imaj7",
-      "vi7",
-      "IVmaj7",
-      "♭VIImaj7",
-      "♭IIImaj7",
-      "♭VImaj7",
-      "V9sus4",
-      "Imaj7"
-    ],
+    "chords": ["Imaj7", "vi7", "IVmaj7", "♭VIImaj7", "♭IIImaj7", "♭VImaj7", "V9sus4", "Imaj7"],
     "example": "Phoebe Bridgers · Snail Mail · Soccer Mommy · Clairo",
     "description": "GarageBand major 7ths over bedroom recordings. Vulnerability made harmonic."
   },
@@ -4023,16 +3634,7 @@
     "category": "Hip-Hop",
     "color": "#FF6600",
     "accent": "#0099FF",
-    "chords": [
-      "imaj7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "imaj7",
-      "♭IImaj7",
-      "V7♭9",
-      "imaj7"
-    ],
+    "chords": ["imaj7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "imaj7", "♭IImaj7", "V7♭9", "imaj7"],
     "example": "Sour Times · Glory Box · Machine Gun · Roads",
     "description": "Bristol trip-hop — minor major 7ths over broken beats. Cinema noir meets hip-hop sampling."
   },
@@ -4043,16 +3645,7 @@
     "category": "Hip-Hop",
     "color": "#0055FF",
     "accent": "#FF9900",
-    "chords": [
-      "i7",
-      "♭VImaj9",
-      "♭IIImaj7",
-      "♭VII7",
-      "i7",
-      "IVmaj9♯11",
-      "♭IImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj9", "♭IIImaj7", "♭VII7", "i7", "IVmaj9♯11", "♭IImaj7", "V7sus4"],
     "example": "Teardrop · Unfinished Sympathy · Safe from Harm · Angel",
     "description": "Massive Attack's cinematic loop — jazz harmony slowed to a crawl over 90 BPM breakbeats."
   },
@@ -4083,16 +3676,7 @@
     "category": "Hip-Hop",
     "color": "#FF0044",
     "accent": "#00FFCC",
-    "chords": [
-      "i7",
-      "♭VImaj9",
-      "♭IIImaj7",
-      "IV7♯11",
-      "i7",
-      "♭VII9",
-      "♭IImaj7",
-      "V7♭9♯9"
-    ],
+    "chords": ["i7", "♭VImaj9", "♭IIImaj7", "IV7♯11", "i7", "♭VII9", "♭IImaj7", "V7♭9♯9"],
     "example": "Alright · Swimming Pools · Rigamortis · Money Trees",
     "description": "Thundercat's and Kamasi's jazz influences in rap context. The ♯11 chord is the pivot of revelation."
   },
@@ -4165,16 +3749,7 @@
     "category": "R&B/Neo-Soul",
     "color": "#FF3300",
     "accent": "#00CCFF",
-    "chords": [
-      "imaj7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "imaj7",
-      "IV7♯11",
-      "V7♭9",
-      "imaj7"
-    ],
+    "chords": ["imaj7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "imaj7", "IV7♯11", "V7♭9", "imaj7"],
     "example": "Blinding Lights · Starboy · Can't Feel My Face · The Hills",
     "description": "XO's midnight harmonic loop — descending minor major 7ths under synthwave drums."
   },
@@ -4185,16 +3760,7 @@
     "category": "R&B/Neo-Soul",
     "color": "#AAFF00",
     "accent": "#AA00FF",
-    "chords": [
-      "imaj9",
-      "♭VImaj9",
-      "♭IIImaj9",
-      "♭VIImaj9",
-      "imaj9",
-      "IVmaj9",
-      "♭IImaj9",
-      "V9sus4"
-    ],
+    "chords": ["imaj9", "♭VImaj9", "♭IIImaj9", "♭VIImaj9", "imaj9", "IVmaj9", "♭IImaj9", "V9sus4"],
     "example": "Redbone · Terrified · 3005 · Me and Your Mama",
     "description": "Donald Glover's harmonic range — from Kendrick-adjacent minor 9ths to Stevie Wonder major joy."
   },
@@ -4205,16 +3771,7 @@
     "category": "R&B/Neo-Soul",
     "color": "#FF6600",
     "accent": "#0099FF",
-    "chords": [
-      "i7",
-      "♭VImaj7♯11",
-      "♭IIImaj7",
-      "♭VII7",
-      "i7",
-      "IVmaj7♯11",
-      "♭IImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj7♯11", "♭IIImaj7", "♭VII7", "i7", "IVmaj7♯11", "♭IImaj7", "V7sus4"],
     "example": "Good Days · Normal Girl · Drew Barrymore · Kill Bill",
     "description": "SZA's harmonic orbit — minor 7ths surrounded by lydian-colored major 7ths, always reaching."
   },
@@ -4225,16 +3782,7 @@
     "category": "R&B/Neo-Soul",
     "color": "#00FF88",
     "accent": "#FF0055",
-    "chords": [
-      "Imaj9",
-      "♭VIImaj9",
-      "IVmaj9♯11",
-      "♭IIImaj9",
-      "Imaj9",
-      "vi9",
-      "♭VImaj9",
-      "V9sus4"
-    ],
+    "chords": ["Imaj9", "♭VIImaj9", "IVmaj9♯11", "♭IIImaj9", "Imaj9", "vi9", "♭VImaj9", "V9sus4"],
     "example": "Paper Thin · Unstoppable · Good Goodbye · Courage",
     "description": "Lianne's guitar-led harmony — major 9ths cycling through flat-side jazz territory with soulful grace."
   },
@@ -4245,16 +3793,7 @@
     "category": "R&B/Neo-Soul",
     "color": "#FF0033",
     "accent": "#00FFCC",
-    "chords": [
-      "imaj7",
-      "♭VImaj7",
-      "♭IIImaj7♯11",
-      "♭VIImaj7",
-      "imaj7",
-      "IV7",
-      "V7sus4",
-      "V7♭9"
-    ],
+    "chords": ["imaj7", "♭VImaj7", "♭IIImaj7♯11", "♭VIImaj7", "imaj7", "IV7", "V7sus4", "V7♭9"],
     "example": "Sober · I Wish I Missed My Ex · Grateful · Seasons",
     "description": "UK's heartbreak queen — minor major 7ths cycling with Jazmine Sullivan soul and Sade elegance."
   },
@@ -4265,16 +3804,7 @@
     "category": "Pop/Rock",
     "color": "#FF00FF",
     "accent": "#AAFF00",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "IVmaj7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VII",
-      "V7sus4",
-      "I"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "IVmaj7", "♭VImaj7", "♭IIImaj7", "♭VII", "V7sus4", "I"],
     "example": "Let It Happen · The Less I Know the Better · Eventually · Feels Like We Only Go Backwards",
     "description": "Kevin Parker's psych-pop production — major 7ths cycling through borrowed flat-side territory."
   },
@@ -4347,16 +3877,7 @@
     "category": "Electronic",
     "color": "#FFFF00",
     "accent": "#AA00FF",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VII7",
-      "i7",
-      "IV7",
-      "♭IImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VII7", "i7", "IV7", "♭IImaj7", "V7sus4"],
     "example": "All My Friends · Daft Punk Is Playing at My House · Someone Great · Dance Yrself Clean",
     "description": "Murphy's disco-punk synthesis — Krautrock motor rhythm under New York emotional minor cycles."
   },
@@ -4367,16 +3888,7 @@
     "category": "Electronic",
     "color": "#FF5500",
     "accent": "#00AAFF",
-    "chords": [
-      "Imaj7",
-      "♭VIImaj7",
-      "IVmaj7",
-      "♭IIImaj7",
-      "Imaj7",
-      "vi7",
-      "♭VImaj7",
-      "V9sus4"
-    ],
+    "chords": ["Imaj7", "♭VIImaj7", "IVmaj7", "♭IIImaj7", "Imaj7", "vi7", "♭VImaj7", "V9sus4"],
     "example": "Ready for the Floor · Over and Over · I Feel Better · Boy from School",
     "description": "Oxford electronics over Chicago house — major 7ths dancing at 120 BPM forever."
   },
@@ -4387,16 +3899,7 @@
     "category": "Electronic",
     "color": "#FF0099",
     "accent": "#00FFFF",
-    "chords": [
-      "imaj7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "imaj7",
-      "♭IImaj7",
-      "V7♭9",
-      "imaj7"
-    ],
+    "chords": ["imaj7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "imaj7", "♭IImaj7", "V7♭9", "imaj7"],
     "example": "Kill for Love · Shadow · I Can Never Be Myself When You're Around · Lady",
     "description": "Italians Do It Better's midnight aesthetic — descending minor major 7ths under reverb-soaked guitar."
   },
@@ -4524,16 +4027,7 @@
     "category": "World",
     "color": "#FF0099",
     "accent": "#00FFAA",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "i7",
-      "IV7",
-      "♭IImaj7",
-      "V7sus4"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "i7", "IV7", "♭IImaj7", "V7sus4"],
     "example": "Burna Boy · Wizkid · Davido · Tiwa Savage",
     "description": "Afrobeats' harmonic signature — minor 7th clouds floating over Afro-Juju rhythmic foundations."
   },
@@ -4652,16 +4146,7 @@
     "category": "Latin Jazz",
     "color": "#AAFF00",
     "accent": "#CC00FF",
-    "chords": [
-      "Imaj7",
-      "♭IIImaj7",
-      "♭VImaj7",
-      "IV7♯11",
-      "ii7",
-      "V7♭9",
-      "Imaj7",
-      "♭II7"
-    ],
+    "chords": ["Imaj7", "♭IIImaj7", "♭VImaj7", "IV7♯11", "ii7", "V7♭9", "Imaj7", "♭II7"],
     "example": "Silvio Rodríguez · Pablo Milanés · Compay Segundo · Buena Vista Social Club",
     "description": "Nueva trova's refined guitar harmony — jazz voicings over Spanish guitar tradition."
   },
@@ -4694,16 +4179,7 @@
     "category": "World",
     "color": "#FF5500",
     "accent": "#00AAFF",
-    "chords": [
-      "imaj7",
-      "♭IImaj7",
-      "V7♭9♯9♯11",
-      "imaj7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VII7♯11",
-      "V7♭9"
-    ],
+    "chords": ["imaj7", "♭IImaj7", "V7♭9♯9♯11", "imaj7", "♭VImaj7", "♭IIImaj7", "♭VII7♯11", "V7♭9"],
     "example": "Libertango · Adiós Nonino · Oblivion · Verano Porteño",
     "description": "Piazzolla's revolutionary synthesis — bandoneon jazz voicings meeting tango's melancholic drive."
   },
@@ -4736,16 +4212,7 @@
     "category": "Afrobeat",
     "color": "#FF3300",
     "accent": "#00CCFF",
-    "chords": [
-      "i7",
-      "♭VImaj9",
-      "♭IIImaj7♯11",
-      "♭VII9",
-      "i7",
-      "IVmaj9♯11",
-      "♭IImaj9",
-      "V13sus4"
-    ],
+    "chords": ["i7", "♭VImaj9", "♭IIImaj7♯11", "♭VII9", "i7", "IVmaj9♯11", "♭IImaj9", "V13sus4"],
     "example": "Ebo Taylor · Pat Thomas · Kwadwo Donkoh · Amanfrom",
     "description": "Ghanaian jazz-funk synthesis — minor 9th harmony over clave-inflected highlife rhythm."
   },
@@ -4778,16 +4245,7 @@
     "category": "Reggae",
     "color": "#FF0044",
     "accent": "#00FFCC",
-    "chords": [
-      "i7",
-      "♭VImaj7",
-      "♭IIImaj7",
-      "♭VIImaj7",
-      "i7",
-      "IV7",
-      "V7sus4",
-      "i7"
-    ],
+    "chords": ["i7", "♭VImaj7", "♭IIImaj7", "♭VIImaj7", "i7", "IV7", "V7sus4", "i7"],
     "example": "Lee Perry · King Tubby · Augustus Pablo · Mad Professor",
     "description": "Dub's harmonic loop survives long after the melody is dissolved in echo and delay."
   },
@@ -4915,16 +4373,7 @@
     "category": "Jazz",
     "color": "#FF0099",
     "accent": "#00FFAA",
-    "chords": [
-      "i",
-      "♭II7♯11",
-      "♭VImaj7♯11",
-      "IV7♯11",
-      "imaj7",
-      "♭IIImaj7",
-      "♭VII7",
-      "V7♭9♯9"
-    ],
+    "chords": ["i", "♭II7♯11", "♭VImaj7♯11", "IV7♯11", "imaj7", "♭IIImaj7", "♭VII7", "V7♭9♯9"],
     "example": "Mahavishnu Orchestra · Birds of Fire · The Inner Mounting Flame",
     "description": "McLaughlin's chromatic jazz-rock fusion — lydian ♯11 chords in 11/8 with Shakti intensity."
   },
@@ -4975,16 +4424,7 @@
     "category": "Jazz",
     "color": "#AAFF00",
     "accent": "#AA00FF",
-    "chords": [
-      "i7",
-      "♭VII7♯11",
-      "♭IIImaj7",
-      "IV7♯11",
-      "i7",
-      "♭VI7",
-      "♭IImaj7♯11",
-      "V7♭9♯9"
-    ],
+    "chords": ["i7", "♭VII7♯11", "♭IIImaj7", "IV7♯11", "i7", "♭VI7", "♭IImaj7♯11", "V7♭9♯9"],
     "example": "Bitches Brew · In a Silent Way · Live-Evil · Dark Magus",
     "description": "Miles's electric period — rock rhythm under jazz harmony under African polyrhythm. Revolution."
   },

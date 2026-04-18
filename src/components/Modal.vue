@@ -60,10 +60,13 @@ defineEmits<{
 }>();
 
 const modalInnerRef = ref<HTMLElement | null>(null);
-const chordPillsRef = ref<{ toggle: (i: number) => void } | null>(null);
+const chordPillsRef = ref<{
+  toggle: (i: number) => void;
+  setActive: (i: number, active: boolean) => void;
+} | null>(null);
 
 const svgMarkup = computed(() =>
-  props.labyrinth ? buildSVG(props.labyrinth, 260) : '',
+  props.labyrinth ? buildSVG(props.labyrinth, 260, 180) : '',
 );
 
 watch(
@@ -81,8 +84,13 @@ watch(
 
 function onModalAfterEnter() {
   if (!props.labyrinth) return;
-  const first = modalInnerRef.value?.querySelector<HTMLButtonElement>('button.chord-pill');
-  first?.click();
+  // Seed modal pills from the card's current active state so both contexts
+  // start in sync. Fall back to activating the first chord if the card has
+  // nothing active yet (e.g. scroll-reveal hasn't fired).
+  const card = cardRegistry.get(props.labyrinth.id);
+  const active = card?.getActiveChords() ?? new Set<number>();
+  const indices = active.size > 0 ? [...active] : [0];
+  indices.forEach((idx) => chordPillsRef.value?.toggle(idx));
 }
 
 function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {
@@ -102,7 +110,7 @@ function onPillToggle(nodeIdx: number, active: boolean) {
   // Update modal SVG
   highlightSVGNode(props.labyrinth.id, nodeIdx, active, document.getElementById('lab-modal'));
   // Mirror selection onto the card (pill state + SVG) via the registry
-  cardRegistry.get(props.labyrinth.id)?.(nodeIdx, active);
+  cardRegistry.get(props.labyrinth.id)?.syncChord(nodeIdx, active);
 }
 </script>
 

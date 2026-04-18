@@ -166,7 +166,7 @@ watch(debouncedQuery, (val) => {
   transition: border-color 0.2s;
 
   &:focus {
-    border-color: var(--gold);
+    border-color: var(--gold-active);
   }
 
   &::placeholder {
@@ -353,7 +353,6 @@ watch(debouncedQuery, (val) => {
 
 :deep(.ms-option-count) {
   font-size: 9px;
-  opacity: 0.45;
   color: var(--gold);
   margin-left: 8px;
   letter-spacing: 0.04em;
