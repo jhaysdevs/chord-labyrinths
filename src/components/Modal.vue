@@ -50,6 +50,7 @@ import type { ChordLabyrinth } from '../types/chords';
 import ChordPills from './ChordPills.vue';
 import { buildSVG, highlightSVGNode } from '../utils/svg';
 import { cardRegistry } from '../utils/cardRegistry';
+import { modalRegistry } from '../utils/modalRegistry';
 
 const props = defineProps<{
   labyrinth: ChordLabyrinth | null;
@@ -71,26 +72,34 @@ const svgMarkup = computed(() =>
 
 watch(
   () => props.labyrinth,
-  async (lab) => {
+  async (lab, oldLab) => {
     if (lab) {
       document.body.style.overflow = 'hidden';
+      // Register so ChordCard can sync modal pill button state (e.g. on auto-reset).
+      modalRegistry.set(lab.id, {
+        setActive: (i, active) => chordPillsRef.value?.setActive(i, active),
+      });
       await nextTick();
       modalInnerRef.value?.focus();
     } else {
       document.body.style.overflow = '';
+      if (oldLab) modalRegistry.delete(oldLab.id);
     }
   },
 );
 
 function onModalAfterEnter() {
   if (!props.labyrinth) return;
-  // Seed modal pills from the card's current active state so both contexts
-  // start in sync. Fall back to activating the first chord if the card has
-  // nothing active yet (e.g. scroll-reveal hasn't fired).
+  // Mirror whatever the card has active — nothing more. If the card has no
+  // active pills yet, the modal opens with all pills inactive too.
   const card = cardRegistry.get(props.labyrinth.id);
   const active = card?.getActiveChords() ?? new Set<number>();
-  const indices = active.size > 0 ? [...active] : [0];
-  indices.forEach((idx) => chordPillsRef.value?.toggle(idx));
+  if (active.size === 0) return;
+  const container = document.getElementById('lab-modal');
+  [...active].forEach((idx) => {
+    chordPillsRef.value?.setActive(idx, true);
+    highlightSVGNode(props.labyrinth!.id, idx, true, container);
+  });
 }
 
 function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {

@@ -40,6 +40,7 @@ import { buildSVG, highlightSVGNode } from '../utils/svg';
 import { useScrollReveal } from '../composables/useScrollReveal';
 import { useMediaQuery } from '../composables/useMediaQuery';
 import { cardRegistry } from '../utils/cardRegistry';
+import { modalRegistry } from '../utils/modalRegistry';
 
 const props = defineProps<{
   labyrinth: ChordLabyrinth;
@@ -95,8 +96,9 @@ function onSvgChordInteract(e: MouseEvent | KeyboardEvent) {
 
 function onPillToggle(nodeIdx: number, active: boolean) {
   highlightSVGNode(props.labyrinth.id, nodeIdx, active, cardRef.value);
-  // Also sync the modal SVG if this card's modal is currently open
+  // Sync the modal SVG and pill buttons if this card's modal is currently open
   highlightSVGNode(props.labyrinth.id, nodeIdx, active, document.getElementById('lab-modal'));
+  modalRegistry.get(props.labyrinth.id)?.setActive(nodeIdx, active);
 }
 </script>
 

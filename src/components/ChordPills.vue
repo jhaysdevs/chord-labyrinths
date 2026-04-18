@@ -1,8 +1,16 @@
 <template>
   <div class="chord-pills">
-    <button v-for="(chord, i) in chords" :key="i" class="chord-pill"
-      :class="{ root: i === 0, active: activeChords.has(i) }" :style="pillStyle(i)" :aria-pressed="activeChords.has(i)"
-      :title="`Toggle highlight: ${chord}`" @click="toggle(i)">
+    <button
+      v-for="(chord, i) in chords"
+      :key="i"
+      class="chord-pill"
+      :class="{ active: activeChords.has(i), locked: isLocked(i) }"
+      :style="pillStyle(i)"
+      :aria-pressed="activeChords.has(i)"
+      :aria-disabled="isLocked(i)"
+      :title="isLocked(i) ? 'Play previous chords first' : chord"
+      @click="toggle(i)"
+    >
       {{ chord }}
     </button>
     <span class="loop-icon" :style="{ color: accent }">↺</span>
@@ -10,7 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
+import { playChord, stopAll } from '../utils/tones';
 
 const props = defineProps<{
   chords: string[];
@@ -23,20 +32,47 @@ const emit = defineEmits<{
 }>();
 
 const activeChords = ref(new Set<number>());
+let resetTimer: ReturnType<typeof setTimeout> | undefined;
+
+onUnmounted(() => clearTimeout(resetTimer));
+
+/** True when pill i cannot yet be activated (a prior pill is still inactive). */
+function isLocked(i: number): boolean {
+  if (activeChords.value.has(i)) return false;
+  for (let j = 0; j < i; j++) {
+    if (!activeChords.value.has(j)) return true;
+  }
+  return false;
+}
 
 function toggle(i: number) {
   if (activeChords.value.has(i)) {
-    activeChords.value.delete(i);
-    emit('toggle', i, false);
-  } else {
-    activeChords.value.add(i);
-    emit('toggle', i, true);
+    // Already active — replay the chord without changing state.
+    stopAll();
+    playChord(props.chords[i]);
+    return;
   }
-  activeChords.value = new Set(activeChords.value);
+
+  // Gate: all prior pills must be active before this one can activate.
+  if (isLocked(i)) return;
+
+  activeChords.value = new Set([...activeChords.value, i]);
+  emit('toggle', i, true);
+  stopAll();
+  playChord(props.chords[i]);
+
+  // After the last pill is activated, reset everything after a brief pause.
+  if (i === props.chords.length - 1) {
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      const indices = [...activeChords.value];
+      activeChords.value = new Set();
+      indices.forEach(idx => emit('toggle', idx, false));
+    }, 800);
+  }
 }
 
 function pillStyle(i: number) {
-  const isRoot = i === 0;
   const isActive = activeChords.value.has(i);
   if (isActive) {
     return {
@@ -47,13 +83,13 @@ function pillStyle(i: number) {
     };
   }
   return {
-    background: isRoot ? props.color : props.color + '16',
+    background: props.color + '16',
     border: `1px solid ${props.color}44`,
-    color: isRoot ? '#0f0f14' : props.color,
+    color: props.color,
   };
 }
 
-/** Silently sync pill state from an external source (e.g. modal → card) without re-emitting. */
+/** Silently sync pill state from an external source without re-emitting. */
 function setActive(i: number, active: boolean) {
   if (active === activeChords.value.has(i)) return;
   if (active) activeChords.value.add(i);
@@ -95,6 +131,16 @@ defineExpose({ toggle, setActive, getActive });
 
   &.active {
     transform: scale(1.02);
+  }
+
+  &.locked {
+    opacity: 0.35;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: none;
+      filter: none;
+    }
   }
 }
 
